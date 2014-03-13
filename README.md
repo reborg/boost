@@ -7,7 +7,7 @@ Yet another collection of Clojure utilty functions. Just one 'core' namespace co
 Put this dependency in your project.clj
 
     :dependencies [[...]
-                   [boost "0.1.2"]
+                   [boost "0.1.1"]
                    [...]]
 
 And then:
