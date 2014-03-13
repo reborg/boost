@@ -7,7 +7,7 @@ Yet another collection of Clojure utilty functions. Just one 'core' namespace co
 Put this dependency in your project.clj
 
     :dependencies [[...]
-                   [boost "0.1.0"]
+                   [boost "0.1.2"]
                    [...]]
 
 And then:
@@ -25,6 +25,7 @@ And then:
 * index of the first occurence of an item in coll
 * swapping elements in a sequence
 * updating values in a map
+* file system utils
 
 ## Internals documentation
 

@@ -1,4 +1,4 @@
-(defproject boost "0.1.0"
+(defproject boost "0.1.2"
   :description "Collection of Clojure utilty functions"
   :url "https://github.com/reborg/boost"
   :license {:name "Eclipse Public License"
@@ -7,4 +7,4 @@
   :plugins [[lein-midje "3.1.3"]]
   :profiles {:dev {:dependencies [[midje "1.6.0"]
                                   [criterium "0.4.2"]
-                                  [xrepl "0.1.1"]]}})
+                                  [xrepl "0.1.2"]]}})

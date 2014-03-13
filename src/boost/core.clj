@@ -1,4 +1,5 @@
-(ns boost.core)
+(ns boost.core
+  (:require [clojure.java.io :as io]))
 
 ;(set! *warn-on-reflection* true)
 
@@ -50,3 +51,10 @@
    (map-val inc {:a 0 :b 0}) => {:a 1 :b 1}
   credits: http://stackoverflow.com/questions/1676891/mapping-a-function-on-the-values-of-a-map-in-clojure"
   (into {} (for [[k v] m] [k (f v)])))
+
+;; File manipulation stuff
+
+(defn abs-path [fname]
+  "Given a resource accessible from the classpath,
+  returns the absolute path of the resource"
+  (.getPath (io/resource fname)))
