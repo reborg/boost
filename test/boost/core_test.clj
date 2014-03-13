@@ -1,6 +1,7 @@
 (ns boost.core-test
-  (:use [midje.sweet])
-  (:use [boost.core]))
+  (:use [midje.sweet]
+        [boost.core])
+  (:require [clojure.string :as s]))
 
 (facts "optimal partitioning of coll into parts of the same size"
        (fact "no leftovers"
@@ -55,3 +56,7 @@
 (facts "updating values in a map"
        (fact "keys are unaltered"
              (map-val inc {:a 0 :b 0}) => {:a 1 :b 1}))
+
+(facts "loading files"
+       (fact "converts classpath name into abs path name"
+             (.endsWith (abs-path "test.file") "test.file") => truthy))
