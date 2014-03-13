@@ -1,4 +1,4 @@
-(defproject boost "0.1.1"
+(defproject boost "0.1.2"
   :description "Collection of Clojure utilty functions"
   :url "https://github.com/reborg/boost"
   :license {:name "Eclipse Public License"
