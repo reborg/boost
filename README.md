@@ -1,21 +1,21 @@
 # boost
 
-Yet another collection of Clojure utilty functions. Just one 'core' namespace collecting general purpose functions aggregated here for quick searching and re-use. No specific relation with the Boost library of C++ fame! Except a few (credited) exceptions, all snippets come from other projects of mine.
+Yet another collection of Clojure utilty functions. Just one 'core' namespace collecting general purpose functions aggregated here for quick searching and re-use. No specific relation with the Boost library of C++ fame other than having the similar intent to completement the standard lib. Except a few `(credited)` exceptions, all snippets come from projects I worked on, sometimes inspired by other snippets, articles, discussions.
 
 ## Install
 
-Put this dependency in your project.clj
+Put this dependency in your project.clj:
 
-    :dependencies [[...]
-                   [boost "0.1.1"]
-                   [...]]
+    :dependencies [
+                   [boost "0.1.2"]
+                  ]
 
 And then:
 
-    (ns yourprjhere.core
-      (:require [...]
+    (ns your-prj-here.core
+      (:require 
                 [boost.core :as boost]
-                [...]))
+                ))
 
 ## Provided utils
 
@@ -24,7 +24,8 @@ And then:
 * interleave all, including collections of different sizes
 * index of the first occurence of an item in coll
 * swapping elements in a sequence
-* updating values in a map
+* map-val: updating all values in a map using a custom function
+* update-all: updating values for the specified keys in a map using a custom function
 * file system utils
 
 ## Internals documentation

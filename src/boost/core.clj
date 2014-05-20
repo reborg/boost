@@ -61,7 +61,9 @@
 (defn update-all [m ks f & args] 
   "Updates multiple values in an associative structure m where
   ks is a sequence of keys and f is a function 
-  that will take the old value and any supplied args."
+  that will take the old value and any supplied args. For example:
+    > (update-all {:a \"hello\" :b \"ave\" :c \"hola\"} [:b :c] str \" renzo\")
+    > {:a \"hello\" :b \"ave renzo\" :c \"hola renzo\"}" 
   (reduce (fn [m k] (apply update-in m [k] f args)) m ks))
 
 ;;; File and IO ;;;
