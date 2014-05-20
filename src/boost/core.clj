@@ -3,6 +3,8 @@
 
 ;(set! *warn-on-reflection* true)
 
+;;; collection splitting and resizing ;;;
+
 (defn optimal-size [coll n]
   "Given a collection coll and a desired number of containers n
   returns the optimal size of the container so items will
@@ -20,6 +22,8 @@
   "Transform the list of collection colls so that
   all collections are of the same size using a nil-filler."
   (map #(resize % (apply max (map count colls))) colls))
+
+;;; collections ;;;
 
 (defn interleave-all [& colls]
   "Like interleave but include leftovers at the tail"
@@ -46,13 +50,21 @@
       (remove nil? (flatten (cons a (cons b-swap c-swap)))))
     coll))
 
+;;; Maps ;;;
+
 (defn map-val [f m]
   "Applies f to all the values of the associative structure m:
    (map-val inc {:a 0 :b 0}) => {:a 1 :b 1}
   credits: http://stackoverflow.com/questions/1676891/mapping-a-function-on-the-values-of-a-map-in-clojure"
   (into {} (for [[k v] m] [k (f v)])))
 
-;; File manipulation stuff
+(defn update-all [m ks f & args] 
+  "Updates multiple values in an associative structure m where
+  ks is a sequence of keys and f is a function 
+  that will take the old value and any supplied args."
+  (reduce (fn [m k] (apply update-in m [k] f args)) m ks))
+
+;;; File and IO ;;;
 
 (defn abs-path [fname]
   "Given a resource accessible from the classpath,
