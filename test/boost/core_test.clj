@@ -55,7 +55,11 @@
 
 (facts "updating values in a map"
        (fact "keys are unaltered"
-             (map-val inc {:a 0 :b 0}) => {:a 1 :b 1}))
+             (map-val inc {:a 0 :b 0}) => {:a 1 :b 1})
+       (fact "passing an updating fn"
+             (update-all {:a 0 :b 1 :c 2} [:b :c] inc) => {:a 0 :b 2 :c 3})
+       (fact "passing an updating fn with additional args"
+             (update-all {:a "hello" :b "ave" :c "hola"} [:b :c] str " renzo") => {:a "hello" :b "ave renzo" :c "hola renzo"}))
 
 (facts "loading files"
        (fact "converts classpath name into abs path name"
